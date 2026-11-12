@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #12140f;
+  --color-panel: #1c1f18;
+  --color-panel-2: #262a20;
+  --color-ink: #e7e4d6;
+  --color-muted: #9c9a8c;
+  --color-line: #3a3e32;
+  --color-brass: #d4a054;
+  --color-brass-ink: #2a2112;
+  --color-sage: #8eae78;
+  --color-danger: #c45c4a;
+  --font-sans: "Figtree", "Segoe UI", sans-serif;
+  --font-display: "Fraunces", Georgia, serif;
+  --font-mono: ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --spacing-rail: 4.5rem;
+  --spacing-dock: 22rem;
+}
+
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brass);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .app-shell {
+    display: grid;
+    min-height: 0;
+    min-width: 0;
+    flex: 1 1 auto;
+    grid-template-rows: 3.5rem minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  @media (width >= 64rem) {
+    .app-shell {
+      grid-template-columns: var(--spacing-rail) minmax(0, 1fr) var(--spacing-dock);
+      grid-template-rows: minmax(0, 1fr);
+    }
+  }
+}
